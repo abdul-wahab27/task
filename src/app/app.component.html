@@ -1,0 +1,44 @@
+<h2>{{ title }}</h2>
+
+<form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
+  <label for="name">Student Name</label>
+  <input type="text" ngModel name="name" /><br /><br />
+  <label for="marks">Marks</label>
+  <input type="text" ngModel name="marks" /><br /><br />
+
+  <button class="btn btn-primary" type="submit">Save</button>
+</form>
+
+<table class="table">
+  <th>
+    <tr>
+      <td>S no.</td>
+      <td>Student Name</td>
+      <td>Marks</td>
+      <td>Actions</td>
+    </tr>
+    <tr *ngFor="let student of students; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.marks }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="delete(i)">Delete</button>
+      </td>
+    </tr>
+  </th>
+</table>
+<div>
+  <button class="btn btn-primary" (click)="passed()">Passed</button>
+  <button class="btn btn-danger" (click)="failed()">Failed</button>
+  <button class="btn btn-secondary" (click)="averageStudent()">Average</button>
+  <button class="btn btn-success" (click)="excelentStudent()">Excelent</button>
+
+  <button class="btn btn-light" (click)="totalStudents()">All</button>
+</div>
+<br />
+<br />
+
+<div class="text-center">
+  <h1>{{ num }}</h1>
+  <button (click)="dice()">Dice</button>
+</div>
